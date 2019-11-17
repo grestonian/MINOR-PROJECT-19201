@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # we add our custom apps here
+    'donna'
 ]
 
 MIDDLEWARE = [

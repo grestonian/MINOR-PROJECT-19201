@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from donna.views import home_view
+from donna.views import home
 urlpatterns = [
-    path('', home_view, name='home'),
+    path('', home, name='home'),
     path('admin/', admin.site.urls),
 ]

@@ -46,12 +46,13 @@
       <span></span>
       <span></span>
     </div>
+
+
     <div class="chatbox">
       <div id="messages"></div>
-      <div id="inputform">
-        <input type="text" placeholder="Ask your query..." name="userQuery" id="userQuery">
-        <button id="querySubmit" onclick="querySubmit()">ASK</button>
-      </div>
+        {% block content %}
+			
+		    {% endblock content %}
     </div>
 
     <div class="container">
@@ -68,18 +69,14 @@
       <div class="motto">YOUR PERSONAL UBUNTU SUPPORT ASSISTANT</div>
       <button id="button"><span>Begin</span></button>
 
-      
-      
-      
-      <!-- <form action="a" action="messages.js">
-        <input type="text" value="Ask your query..." name="userQuery">
-        <input type="submit" value="Submit" name="querySubmit">
-      </form> -->
     </div>
     
     <script src="{% static "minor/js/main.js" %}"></script>
     <script src="{% static "minor/js/nav-bar.js" %}"></script>
     <script src="{% static "minor/js/messages.js" %}"></script>
     <!-- <script src="js/slider.js"></script> -->
+    {% block javascript %}
+	
+{% endblock javascript %}
   </body>
   </html>
