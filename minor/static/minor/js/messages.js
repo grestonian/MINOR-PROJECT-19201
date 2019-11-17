@@ -2,8 +2,18 @@ $(document).ready(function() {
     var $myForm = $('.my-ajax-form');
     $myForm.submit(function(event) {
         event.preventDefault();
+
         var $formData = $myForm.serialize();
         var $thisURL = $myForm.attr('data-url') || window.location.href;
+
+        var p1 = document.createElement("p");
+        var user_query = document.createTextNode(jQuery('#id_name').val());
+        p1.appendChild(user_query);
+        var div = document.getElementById('messages');
+        p1.classList.add('userQueryChat');
+        div.appendChild(p1);
+        $myForm[0].reset()
+
         $.ajax({
             method: 'POST',
             url: $thisURL,
@@ -13,17 +23,15 @@ $(document).ready(function() {
         });
 
         function handleSuccess(data) {
-            var p1 = document.createElement("p");
             var p2 = document.createElement("p");
-            var uq = document.createTextNode(data["message"]);
-            var res = document.createTextNode(data["res"]);
-            console.log(data.res)
-            p1.appendChild(uq);
-            p2.appendChild(res);
+            var chatbot_response = document.createTextNode(data["res"]);
+            // console.log(data.res)
+            
+            p2.appendChild(chatbot_response);
             var div = document.getElementById('messages');
-            div.appendChild(p1);
+            p2.classList.add('ResponseChat');
             div.appendChild(p2);
-            $myForm[0].reset()
+            
         }
 
         function handleError(ThrowError) {

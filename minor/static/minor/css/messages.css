@@ -1,4 +1,4 @@
-.mess {
+.userQueryChat {
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   opacity: 1;
@@ -7,6 +7,18 @@
   margin: 10px 15px;
   width: 75%;
   float: right;
+  word-wrap: break-word;
+}
+
+.ResponseChat {
+  border: 2px solid #dedede;
+  background-color: #fae845;
+  opacity: 1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 15px;
+  width: 75%;
+  float: left;
   word-wrap: break-word;
 }
 

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import tinyFormTest
 from django.http import JsonResponse
 from .models import tinytest
+import time
 
 def home(request):
 	form = tinyFormTest()
@@ -14,6 +15,7 @@ def home(request):
 			if request.method == 'POST':
 				name = request.POST['name']
 				# print(str(name) + 'asd')
+				time.sleep(3)
 				res = chatbot(name)
 				print(res)
 			data = {
