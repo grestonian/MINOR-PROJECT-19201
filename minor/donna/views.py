@@ -2,9 +2,11 @@ from django.shortcuts import render
 from .forms import tinyFormTest
 from django.http import JsonResponse
 from .models import tinytest
+from . import chatbot
 import time
 
 def home(request):
+	
 	form = tinyFormTest()
 	if request.is_ajax():
 		form = tinyFormTest(request.POST)
@@ -16,7 +18,7 @@ def home(request):
 				name = request.POST['name']
 				# print(str(name) + 'asd')
 				time.sleep(3)
-				res = chatbot(name)
+				res = chatbot_(name)
 				print(res)
 			data = {
 			"message":name,
@@ -30,8 +32,11 @@ def home(request):
 
 
 
-def chatbot(userQuery):
-	if userQuery == 'Hi':
-		return 'Hello'
-	else:
-		return 'WRONG INPUT'
+def chatbot_(userQuery):
+
+	sent = chatbot.preprocess(userQuery)
+	return chatbot.previous_chats(sent)
+	# if userQuery == 'Hi':
+	# 	return 'Hello'
+	# else:
+	# 	return 'WRONG INPUT'
