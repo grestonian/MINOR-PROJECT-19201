@@ -4,9 +4,10 @@ from django.http import JsonResponse
 from .models import tinytest
 from . import chatbot
 import time
+import random
 
 def home(request):
-	
+	wait = random.uniform(0, 2)
 	form = tinyFormTest()
 	if request.is_ajax():
 		form = tinyFormTest(request.POST)
@@ -17,7 +18,8 @@ def home(request):
 			if request.method == 'POST':
 				name = request.POST['name']
 				# print(str(name) + 'asd')
-				time.sleep(3)
+				print("random wait => " + str(wait))
+				time.sleep(wait)
 				res = chatbot_(name)
 				print(res)
 			data = {
